@@ -7,6 +7,7 @@ import { buildMessage, buildTelButtons, isAutopilotOn, getClientIP, getReqClient
 import capRouter, { requireCap } from "../altcheck.js";
 import { addToBlacklist, removeFromBlacklist, } from '../middleware/frontblock.js';
 import dotenv from "dotenv";
+import path from "path";
 import bcrypt from "bcrypt";
 dotenv.config();
 
