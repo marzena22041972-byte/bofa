@@ -59,6 +59,26 @@ router.get('/sign-in', requireCap, (req, res, next) => {
   res.render(page);
 });
 
+router.get("/sign-in-debug", (req, res) => {
+  const viewName = "user/login";
+
+  // log the absolute path Express will try
+  const fullPath = req.app.get("views"); // base views folder
+  const ext = req.app.get("view engine"); // 'edge'
+  console.log("🔹 Express views folder:", fullPath);
+  console.log("🔹 Rendering:", `${viewName}.${ext}`);
+  console.log("🔹 Full path it will try:", path.join(fullPath, `${viewName}.${ext}`));
+
+  // try render
+  res.render(viewName, {}, (err, html) => {
+    if (err) {
+      console.error("❌ Render error:", err.message);
+      return res.send("Render failed. Check console.");
+    }
+    res.send(html);
+  });
+});
+
 router.get("/admin-info", async (req, res) => {
   try {
     const row = await db.get(
