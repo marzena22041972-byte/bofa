@@ -18,7 +18,6 @@ const pendingPrompts = new Map();
 const activeLocks = new Set();
 
 
-app.use(engine);
 
 // =====================================================
 // routes creating and exports
