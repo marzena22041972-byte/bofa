@@ -32,7 +32,7 @@ console.log("edge express", expressEdge.engine);
 // View engine (FIXED)
 //app.engine("edge", engine);
 app.use(expressEdge.engine);
-//app.set("view engine", "edge");
+app.use(express.static(path.join(__dirname, "public")));
 app.set("views", path.join(__dirname, "views"));
 
 // Middlewares
