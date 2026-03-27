@@ -28,8 +28,12 @@ const io = new Server(server, { cors: { origin: "*" } });
 
 // View engine (FIXED)
 app.engine("edge", expressEdge.engine);
-app.set('view engine', 'edge');
-app.set('views', path.join(__dirname, 'views'));
+app.set("view engine", "edge");
+app.set("views", path.join(__dirname, "views"));
+
+expressEdge.configure({
+  views: path.join(__dirname, "views")
+});
 
 // Middlewares
 app.use(express.json());
