@@ -31,7 +31,7 @@ console.log("edge express", engine);
 
 // View engine (FIXED)
 //app.engine("edge", engine);
-app.use(engine);
+app.use(expressEdge.engine);
 //app.set("view engine", "edge");
 app.set("views", path.join(__dirname, "views"));
 
