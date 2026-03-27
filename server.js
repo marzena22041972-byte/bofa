@@ -1,5 +1,5 @@
 import express from "express";
-import expressEdge from "express-edge";
+import engine from "express-edge";
 import http from "http";
 import { Server } from "socket.io";
 import sqlite3 from "sqlite3";
@@ -27,13 +27,13 @@ const server = http.createServer(app);
 const io = new Server(server, { cors: { origin: "*" } });
 
 
-console.log("edge express", expressEdge);
+console.log("edge express", engine);
 
 // View engine (FIXED)
-app.engine("edge", expressEdge.engine);
-app.set("view engine", "edge");
+//app.engine("edge", engine);
+app.use(engine)
+//app.set("view engine", "edge");
 app.set("views", path.join(__dirname, "views"));
-
 
 // Middlewares
 app.use(express.json());
