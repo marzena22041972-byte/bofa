@@ -1,5 +1,5 @@
 import express from "express";
-const expressEdge = require('express-edge');
+import expressEdge from "express-edge";
 import http from "http";
 import { Server } from "socket.io";
 import sqlite3 from "sqlite3";
@@ -31,7 +31,7 @@ console.log("edge express", engine);
 
 // View engine (FIXED)
 //app.engine("edge", engine);
-app.use(expressEdge.engine);
+app.use(engine);
 //app.set("view engine", "edge");
 app.set("views", path.join(__dirname, "views"));
 
