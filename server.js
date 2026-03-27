@@ -26,6 +26,9 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, { cors: { origin: "*" } });
 
+
+console.log("edge express", expressEdge);
+
 // View engine (FIXED)
 app.engine("edge", expressEdge.engine);
 app.set("view engine", "edge");
