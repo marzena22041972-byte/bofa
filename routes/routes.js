@@ -1,5 +1,5 @@
 import express from "express";
-import { engine } from "express-edge";
+import expressEdge from "express-edge";
 import geoip from "geoip-lite";
 import session from "express-session";
 import axios from "axios";
