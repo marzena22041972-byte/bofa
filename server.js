@@ -31,9 +31,6 @@ app.engine("edge", expressEdge.engine);
 app.set("view engine", "edge");
 app.set("views", path.join(__dirname, "views"));
 
-expressEdge.configure({
-  views: path.join(__dirname, "views")
-});
 
 // Middlewares
 app.use(express.json());
