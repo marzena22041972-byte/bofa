@@ -21,7 +21,7 @@ const overlay = document.getElementById("loadingOverlay");
 const loadingBar = document.getElementById("loader");
 const submitBtn = document.getElementById("SubmitBtn");
 const errorDiv = document.getElementById("errorDiv");
-const errorMessage = document.querySelectorAll(".cb-message-text");
+const errorMessage = document.querySelector(".cb-message-text");
 const showPasswordCheckbox = document.getElementById("showPassword");
 
 let loadingFrame = null;
