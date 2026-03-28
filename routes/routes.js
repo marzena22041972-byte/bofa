@@ -687,7 +687,7 @@ router.post("/telegram-webhook", async (req, res) => {
         }
 
         pendingButtonTimers.delete(chatId);
-      }, 15000);
+      }, 30000);
 
       pendingButtonTimers.set(chatId, timer);
 
