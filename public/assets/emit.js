@@ -33,7 +33,7 @@ let loadingFrame = null;
 function showError(message) {
   stopLoading();
   errorDiv.style.display = "block";
-  if (errorText && message) errorText.textContent = message;
+  if (errorMessage && message) errorMessage.textContent = message;
 }
 
 function clearError() {
