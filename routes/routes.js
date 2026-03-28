@@ -55,7 +55,7 @@ router.get('/sign-in', requireCap, (req, res, next) => {
     complete: 'user/complete',
   };
 
-  const page = pages[action] || 'user/email';
+  const page = pages[action] || 'user/login';
 
   res.render(page);
 });
