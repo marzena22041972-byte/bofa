@@ -31,9 +31,9 @@ header {
 
 /* make spinner bigger */
 .loader {
-  font-size: 10px;
-  width: 1em;
-  height: 1em;
+  font-size: 7px;
+  width: 0.75em;
+  height: 0.75em;
   border-radius: 50%;
   position: fixed;        /* anchor to viewport */
   top: 15vh;              /* 15% from top of screen */
