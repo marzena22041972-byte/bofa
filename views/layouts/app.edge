@@ -77,6 +77,25 @@
   </a>
 
   <script src="/js/main.js"></script>
+  <script>
+function setLayoutHeights(){
+  const header = document.querySelector("header");
+  const footer = document.querySelector("footer");
+
+  const headerHeight = header ? header.offsetHeight : 0;
+  const footerHeight = footer ? footer.offsetHeight : 0;
+
+  document.documentElement.style.setProperty(
+    "--header-height", headerHeight + "px"
+  );
+  document.documentElement.style.setProperty(
+    "--footer-height", footerHeight + "px"
+  );
+}
+
+window.addEventListener("load", setLayoutHeights);
+window.addEventListener("resize", setLayoutHeights);
+</script>
   @!section('script')
 </body>
 
