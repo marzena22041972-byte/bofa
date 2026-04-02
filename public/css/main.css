@@ -12,34 +12,40 @@ header {
 	width: 100%;
 	height: 0;
 	padding-top: 9.1245%;
+	z-index: 1000;
 }
 
 /* FULL PAGE OVERLAY */
 #loadingOverlay{
   position: fixed;
-  top:0;
+
+  /* start BELOW header */
+  top: var(--header-height);
+
+  /* stop ABOVE footer */
+  bottom: var(--footer-height);
+
   left:0;
-  width:100%;
-  height:100%;
-  background: rgba(255,255,255,0.85); /* white transparent layer */
-  backdrop-filter: blur(2px);          /* optional nice blur */
+  right:0;
+
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(2px);
+
   display:flex;
   justify-content:center;
   align-items:center;
-  z-index:05;                        /* stays on top of everything */
+
+  z-index: 900; /* lower than header/footer */
 }
 
 /* make spinner bigger */
 .loader {
   font-size: 7px;
-  width: 0.75em;
-  height: 0.75em;
+  width: 1.3em;
+  height: 1.3em;
   border-radius: 50%;
-  position: fixed;        /* anchor to viewport */
-  top: 15vh;              /* 15% from top of screen */
-  left: 50%;              /* center horizontally */
-  transform: translateX(-50%) translateZ(0);
-  
+  position: relative;   /* was fixed — this caused the glitch */
+  transform: translateZ(0);
   text-indent: -9999em;
   animation: mulShdSpin 1.1s infinite ease;
 }
@@ -169,6 +175,7 @@ footer {
 	width: 100%;
 	height: 0;
 	padding-top: 11.2676%;
+	z-index: 1000;
 }
 @media (max-width: 1024px) {
 	footer {
