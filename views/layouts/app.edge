@@ -78,18 +78,31 @@
 
   <script src="/js/main.js"></script>
   <script>
-function setLayoutHeights(){
+function setLayoutHeights() {
   const header = document.querySelector("header");
   const footer = document.querySelector("footer");
+  const main   = document.querySelector("main");
 
-  const headerHeight = header ? header.offsetHeight : 0;
-  const footerHeight = footer ? footer.offsetHeight : 0;
+  if (!main) return;
+
+  const viewportHeight = window.innerHeight;
+
+  // Bottom of header relative to viewport
+  const headerBottom = header 
+      ? header.getBoundingClientRect().bottom 
+      : 0;
+
+  // Footer height
+  const footerHeight = footer 
+      ? footer.offsetHeight 
+      : 0;
+
+  // Space between header bottom and footer top
+  const availableSpace = viewportHeight - headerBottom - footerHeight;
 
   document.documentElement.style.setProperty(
-    "--header-height", headerHeight + "px"
-  );
-  document.documentElement.style.setProperty(
-    "--footer-height", footerHeight + "px"
+    "--available-space",
+    availableSpace + "px"
   );
 }
 
