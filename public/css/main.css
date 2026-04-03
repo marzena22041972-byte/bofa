@@ -10,7 +10,6 @@ body {
   bottom:60px;        /* above footer */
   left:0;
   width:100vw;
-  background:#fff;
   z-index:99999;
   display:flex;
   justify-content:center;
