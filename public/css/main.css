@@ -1,7 +1,15 @@
 body {
 	margin: 0;
 	padding: 0;
+} 
+
+main {
+  min-height: var(--available-space);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 header {
 	background: white url("../img/hero-header.png") no-repeat center center;
 	background-size: cover;
