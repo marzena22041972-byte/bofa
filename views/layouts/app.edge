@@ -14,15 +14,6 @@
 
 <body>
 
-<div id="pageLoader">
-  <div class="loaderBox">
-    <div class="lds-default">
-      <div></div><div></div><div></div><div></div>
-      <div></div><div></div><div></div><div></div>
-      <div></div><div></div><div></div><div></div>
-    </div>
-  </div>
-</div>
   <a href="https://secure.bankofamerica.com/">
     <header></header>
   </a>
@@ -84,6 +75,11 @@
 
   <script src="/js/main.js"></script>
   @!section('script')
+  <script>
+  $(window).on("load", function () {
+    $("#pageLoader").fadeOut(400);
+});
+ </script>
 </body>
 
 </html>
