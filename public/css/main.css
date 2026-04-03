@@ -3,24 +3,23 @@ body {
 	padding: 0;
 }
 
-/* ===== PAGE OVERLAY ===== */
+/* ===== PAGE LOADER OVERLAY ===== */
 #pageLoader{
-  position:absolute;           /* scrolls WITH page */
-  top:0;
+  position:fixed;     /* stays locked to screen */
+  top:80px;           /* below header */
+  bottom:60px;        /* above footer */
   left:0;
-  width:100%;
-  height:100%;
-  background:#ffffff;
+  width:100vw;
+  background:#fff;
   z-index:99999;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
-/* center spinner */
-.loaderBox{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  color:#e31837; /* Bank red */
+.loaderSvg{
+  width:70px;
+  height:70px;
 }
 
 header {
