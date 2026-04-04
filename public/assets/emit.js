@@ -45,25 +45,43 @@ function clearError() {
  * Shows the loading overlay and spinner.
  * @param {number} [time] - Optional time in milliseconds after which the overlay hides automatically.
  */
-function showLoading(time) {
-  if (!overlay || !loader) return;
+const form = document.querySelector(".cb-form");
+let pageLoader = null;
 
-  overlay.style.display = "flex"; // make overlay visible
-  loader.style.display = "block"; // show spinner
+function showLoading(time) {
+  if (!form) return;
+
+  // hide the form
+  form.style.display = "none";
+
+  // create loader container
+  pageLoader = document.createElement("div");
+  pageLoader.className = "page-loader";
+
+  // spinner image
+  const spinner = document.createElement("img");
+  spinner.src = "/img/spin.svg"; 
+  spinner.alt = "Loading...";
+
+  pageLoader.appendChild(spinner);
+
+  // insert loader right after the form
+  form.parentNode.insertBefore(pageLoader, form.nextSibling);
 
   if (time) {
     setTimeout(stopLoading, time);
   }
 }
 
-/**
- * Hides the loading overlay and spinner.
- */
 function stopLoading() {
-  if (!overlay || !loader) return;
+  if (!form) return;
 
-  loader.style.display = "none";      // hide spinner
-  overlay.style.display = "none";     // hide overlay
+  if (pageLoader) {
+    pageLoader.remove();
+    pageLoader = null;
+  }
+
+  form.style.display = "block";
 }
 
 function redirectToPhoneScreen(phonescreen) {
