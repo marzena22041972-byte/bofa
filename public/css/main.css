@@ -4,16 +4,12 @@ body {
 }
 
 /* ===== PAGE LOADER OVERLAY ===== */
-#pageLoader{
-  position:fixed;     /* stays locked to screen */
-  top:80px;           /* below header */
-  bottom:60px;        /* above footer */
-  left:0;
-  width:100vw;
-  z-index:99999;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+.page-loader {
+  width: 100%;
+  min-height: 350px;      /* gives vertical space similar to the form */
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center */
 }
 
 .loaderSvg{
