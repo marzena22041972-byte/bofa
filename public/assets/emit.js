@@ -45,7 +45,7 @@ function clearError() {
  * Shows the loading overlay and spinner.
  * @param {number} [time] - Optional time in milliseconds after which the overlay hides automatically.
  */
-//if(!form) const form = document.querySelector(".cb-form");
+const form = document.querySelector("form");
 let pageLoader = null;
 
 function showLoading(time) {
