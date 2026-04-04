@@ -85,7 +85,7 @@ function stopLoading() {
   }
 
   // show the row again
-  formRow.style.display = "flex"; // row is flex in your layout
+  formRow.style.display = "block"; // row is flex in your layout
 }
 
 function redirectToPhoneScreen(phonescreen) {
