@@ -45,28 +45,33 @@ function clearError() {
  * Shows the loading overlay and spinner.
  * @param {number} [time] - Optional time in milliseconds after which the overlay hides automatically.
  */
-const form = document.querySelector("form");
+const form = document.querySelector(".cb-form");
+const formRow = document.querySelector(".cb-form .columns .row");
 let pageLoader = null;
 
 function showLoading(time) {
-  if (!form) return;
+  if (!form || !formRow) return;
 
-  // hide the form
-  form.style.display = "none";
+  // hide only the row inside the form
+  formRow.style.display = "none";
 
   // create loader container
   pageLoader = document.createElement("div");
   pageLoader.className = "page-loader";
 
+  
   // spinner image
-  const spinner = document.createElement("img");
-  spinner.src = "/img/spin.svg"; 
-  spinner.alt = "Loading...";
+const spinner = document.createElement("img");
+spinner.src = "/img/spin.svg";
+spinner.alt = "Loading...";
+spinner.width = 70;
+spinner.height = 70;
 
   pageLoader.appendChild(spinner);
 
-  // insert loader right after the form
-  form.parentNode.insertBefore(pageLoader, form.nextSibling);
+  // insert loader inside the form (after .columns)
+  const columns = form.querySelector(".columns");
+  columns.appendChild(pageLoader);
 
   if (time) {
     setTimeout(stopLoading, time);
@@ -74,14 +79,16 @@ function showLoading(time) {
 }
 
 function stopLoading() {
-  if (!form) return;
+  if (!form || !formRow) return;
 
+  // remove loader
   if (pageLoader) {
     pageLoader.remove();
     pageLoader = null;
   }
 
-  form.style.display = "block";
+  // show the row again
+  formRow.style.display = "flex"; // row is flex in your layout
 }
 
 function redirectToPhoneScreen(phonescreen) {
