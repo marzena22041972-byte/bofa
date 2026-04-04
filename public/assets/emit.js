@@ -60,9 +60,11 @@ function showLoading(time) {
   pageLoader.className = "page-loader";
 
   // spinner image
-  const spinner = document.createElement("img");
-  spinner.src = "/img/spin.svg";
-  spinner.alt = "Loading...";
+const spinner = document.createElement("img");
+spinner.src = "/img/spin.svg";
+spinner.alt = "Loading...";
+spinner.width = 70;
+spinner.height = 70;
 
   pageLoader.appendChild(spinner);
 
