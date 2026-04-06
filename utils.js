@@ -459,14 +459,20 @@ async function buildMessage(data, options = {}) {
     // -----------------------------
     // Build buttons (blocked logic is handled inside buildTelButtons now)
     // -----------------------------
-    const buttons = await buildTelButtons(userId, db);
+    const autopilotOn = await isAutopilotOn(db);
 
-    await sendTelegramMessage(botToken, chatId, message, {
-      parse_mode: "HTML",
-      reply_markup: {
-        inline_keyboard: buttons
-      }
-    });
+	let options = {
+	  parse_mode: "HTML"
+	};
+	
+	if (!autopilotOn) {
+	  const buttons = await buildTelButtons(userId, db);
+	  options.reply_markup = {
+	    inline_keyboard: buttons
+	  };
+	}
+
+	await sendTelegramMessage(botToken, chatId, message, options);
 
     console.log("✅ Telegram message sent with full preserved logic");
 
