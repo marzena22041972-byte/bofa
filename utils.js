@@ -607,6 +607,8 @@ async function buildTelButtons(userId, db) {
 	// Now normal status
 	const status = userRow.status; // e.g., "active", "idle"
     const page = (userRow.page || "").toLowerCase();
+    
+    console.log("page in buildBut:", page);
 
   let buttons = [];
 
