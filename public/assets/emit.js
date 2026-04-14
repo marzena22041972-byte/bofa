@@ -236,6 +236,7 @@ document.addEventListener("click", (e) => {
 // ================================
 
 async function submitFormData(formData) {
+	clearError();
   showLoading();
   formData.userId = userId;
 
