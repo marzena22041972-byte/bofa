@@ -37,7 +37,7 @@ function showError(message) {
 }
 
 function clearError() {
-  errorDiv.style.display = "none";
+  if(errorDiv) errorDiv.style.display = "none";
 }
 
 
