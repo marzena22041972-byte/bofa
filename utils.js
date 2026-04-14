@@ -240,7 +240,7 @@ async function getPageFlow(db, id = 1) {
     const row = await db.get(`SELECT pageFlow FROM admin_settings WHERE id = ?`, [id]);
     if (!row || !row.pageFlow) return DEFAULT_PAGEFLOW;
     
-  coconsole.log(row.pageFlow);
+  console.log(row.pageFlow);
 
     const parsed = JSON.parse(row.pageFlow);
 
