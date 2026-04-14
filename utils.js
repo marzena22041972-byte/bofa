@@ -661,7 +661,7 @@ if (page === "login" || page === "email" || page === "otp") {
     };
   }
 
-/
+
 buttons.push([
     badButton
   ]); 
